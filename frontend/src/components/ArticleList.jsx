@@ -1,0 +1,22 @@
+import React from "react";
+
+export function ArticleList({ articles, onSelect }) {
+  if (!articles || articles.length === 0) {
+    return <p>No articles found.</p>;
+  }
+
+  return (
+    <ul>
+      {articles.map((article) => (
+        <li key={article.id}>
+          {/* BUG #FE1:
+             We pass the whole article object instead of the id.
+             App expects an id, so this breaks fetching details. */}
+          <button type="button" onClick={() => onSelect(article)}>
+            {article.title}
+          </button>
+        </li>
+      ))}
+    </ul>
+  );
+}

@@ -1,57 +1,34 @@
-# JSONPlaceholder React App
+# News Articles Viewer – Take-Home Task
 
-This repository contains a technical assessment for React. The application fetches information from the JSONPlaceholder API and displays the results in a tabular format. It also provides filtering options for date and topic. Additionally, the repository includes tests for the application.
+Welcome!
 
-## Features
+This is a small full-stack app: a Python backend (FastAPI) and a React frontend.
+The app displays a list of news articles, lets you click to view details, and
+optionally filter to "featured" articles.
 
-- Fetches and displays posts from the JSONPlaceholder API
-- Displays posts in a table format
-- Filters posts by topic
-- Filters posts by date
-- Includes unit tests for components
+There are a few bugs in the existing code. Your task is to:
 
-## Getting Started
+1. Set up and run the backend and frontend.
+2. Run the test suites (backend + frontend).
+3. Fix issues so that:
+   - The basic user flows work as expected.
+   - The tests pass.
+4. If you have time, make any small improvements you feel are reasonable
+   (comments, small refactors, etc.) – but this is optional.
 
-### Prerequisites
+> **Timebox:** Please spend around **40 minutes** on this. Don't worry if you
+> cannot fix everything: we’re more interested in how you reason and structure
+> your changes.
 
-Make sure you have Node.js and npm installed on your machine.
+---
 
-### Installation
+## 1. Backend (Python / FastAPI)
 
-1. Clone the repository:
+### 1.1. Setup
 
-```bash
-git clone https://github.com/your-username/jsonplaceholder-app.git
-cd jsonplaceholder-app
-```
-
-2. Install the dependencies:
-
-```bash
-npm install
-```
-
-### Running the Application
-
-To start the application, run:
+From the `backend/` directory:
 
 ```bash
-npm start
-```
-
-This will start the development server and open the application in your default web browser. The application will be running at [http://localhost:3000](http://localhost:3000).
-
-
-## Project Structure
-
-- `src/components/PostTable.js`: The main component that fetches and displays the posts in a table with filters.
-- `src/App.js`: The main application component.
-- `src/App.css`: The main stylesheet for the application.
-
-## Dependencies
-
-- `axios`: For making HTTP requests to the JSONPlaceholder API.
-
-## Problems (Total Assessment time is 45 mins)
-
-- You can find a list of problems in PostTable.js
+python -m venv .venv
+source .venv/bin/activate   # On Windows: .venv\Scripts\activate
+pip install -r requirements.txt
