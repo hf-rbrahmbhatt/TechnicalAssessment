@@ -20,12 +20,6 @@ app.add_middleware(
 
 @app.get("/api/articles", response_model=List[Article])
 def list_articles(featured: Optional[str] = Query(None)):
-    """
-    List articles. Optional ?featured=true|false filter.
-
-    BUG #BE1: `featured` is a string, and this logic treats ANY non-empty string
-    as True. So `?featured=false` will still return only featured articles.
-    """
     articles = ARTICLES
 
     if featured:
@@ -44,13 +38,6 @@ def list_articles(featured: Optional[str] = Query(None)):
 
 @app.get("/api/articles/{article_id}", response_model=Article)
 def get_article(article_id: int):
-    """
-    Get single article by id.
-
-    BUG #BE2: Uses `article_id` as list index, not the `Article.id` field.
-    If ids stop matching indexes (or are 1-based), this breaks.
-    """
-    # Buggy implementation:
     try:
         return ARTICLES[article_id]
     except IndexError:
@@ -59,13 +46,6 @@ def get_article(article_id: int):
 
 @app.post("/api/articles", response_model=Article, status_code=201)
 def create_article(article: Article):
-    """
-    Create new article.
-
-    BUG #BE3: Does not ensure ID uniqueness and allows overwriting in-memory
-    data; also does not enforce that ID is greater than existing IDs.
-    """
-    # naive "upsert"-style behaviour – this is buggy for this simple ID model
     for idx, existing in enumerate(ARTICLES):
         if existing.id == article.id:
             ARTICLES[idx] = article
