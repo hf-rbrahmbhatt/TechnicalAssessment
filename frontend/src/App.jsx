@@ -35,9 +35,6 @@ export default function App() {
     return () => {
       isCancelled = true;
     };
-    // BUG #FE2:
-    // Dependency array is empty, so `showFeaturedOnly` toggling
-    // does not trigger a re-fetch. Should depend on showFeaturedOnly.
   }, []); // ← bug here
 
   const handleSelectArticle = async (articleId) => {
