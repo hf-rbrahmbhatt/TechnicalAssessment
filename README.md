@@ -18,7 +18,17 @@ There are **intentional bugs** in both the frontend and backend.
 Your goal is to use the tests, your debugging skills, and reasoning to
 identify and fix them.
 
-> ⏱ Expected time: about **40 minutes**.\
+After you have fixed the bugs, please provide written responses to the following questions:
+
+1. The 'Show only featured' checkbox wasn't triggering a refetch. Describe how you diagnosed this issue and what you changed. Are there any trade-offs or alternative approaches you considered?
+ 
+2. Describe how you would modify both the backend API and frontend code to support fetching reduced payloads for the list view, and detailed payloads for a full article view. What are the advantages in performing this refactor?
+ 
+3. The project includes both passing and failing tests. Walk us through how you used the test suite to guide your debugging process. Did you write any additional tests? If so, why?
+ 
+4. Looking at the overall architecture, what potential issues do you see with this approach at scale? How would you refactor the codebase if this needed to handle 10,000+ articles?
+
+> ⏱ Expected time: about **60 minutes**.\
 > It's okay if you don't finish everything --- we want to see how you
 > think.
 
