@@ -9,9 +9,6 @@ export function ArticleList({ articles, onSelect }) {
     <ul>
       {articles.map((article) => (
         <li key={article.id}>
-          {/* BUG #FE1:
-             We pass the whole article object instead of the id.
-             App expects an id, so this breaks fetching details. */}
           <button type="button" onClick={() => onSelect(article)}>
             {article.title}
           </button>
